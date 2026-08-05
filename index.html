@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kleber Oliveira Silva - Portfólio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
+        body { background-color: #0b0f17; color: #ffffff; min-height: 100vh; }
+        .portfolio-hero-section { background-color: #0b0f17; color: #ffffff; width: 100%; padding: 50px 20px; display: flex; justify-content: center; align-items: center; }
+        .portfolio-container { position: relative; z-index: 2; width: 100%; max-width: 1300px; background: linear-gradient(135deg, #121824 0%, #0d121b 100%); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 40px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); }
+        .header-section { text-align: center; margin-bottom: 35px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 25px; }
+        .header-section h1 { font-size: 2.8rem; color: #22c55e; font-weight: 700; margin-bottom: 8px; }
+        .header-section h2 { font-size: 1.3rem; color: #e5e7eb; font-weight: 400; margin-bottom: 15px; }
+        .contact-info { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; font-size: 0.95rem; color: #9ca3af; }
+        .contact-info span { display: flex; align-items: center; gap: 8px; }
+        .contact-info i { color: #22c55e; }
+        .main-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 25px; margin-bottom: 25px; }
+        @media (max-width: 900px) { .main-grid { grid-template-columns: 1fr; } }
+        .card { background-color: #171f2f; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 25px; }
+        .card-title { color: #22c55e; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; }
+        .education-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.04); }
+        .education-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .institution-logo { padding: 6px 6px; border-radius: 6px; font-weight: 800; font-size: 0.75rem; min-width: 85px; text-align: center; display: flex; align-items: center; justify-content: center; }
+        .institution-logo.etec { background: #ffffff; color: #b91c1c; }
+        .institution-logo.unimep { background: #1e3a8a; color: #ffffff; }
+        .institution-logo.microlins { background: #0284c7; color: #ffffff; font-size: 0.65rem; letter-spacing: 0.5px; }
+        .institution-logo.senai { background: #1d4ed8; color: #ffffff; }
+        .education-details h3 { font-size: 1rem; color: #ffffff; margin-bottom: 4px; }
+        .education-details p { font-size: 0.85rem; color: #9ca3af; line-height: 1.4; }
+        .tech-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; text-align: center; }
+        @media (max-width: 600px) { .tech-grid { grid-template-columns: repeat(3, 1fr); } }
+        .tech-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .tech-badge { width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; background: #111827; border: 1px solid rgba(255, 255, 255, 0.1); color: #22c55e; }
+        .tech-item span { font-size: 0.75rem; color: #d1d5db; }
+        .competencies-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px; }
+        .competency-box { background: #111827; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.03); }
+        .competency-box i { font-size: 1.5rem; color: #22c55e; margin-bottom: 8px; display: block; }
+        .competency-box span { font-size: 0.85rem; color: #e5e7eb; font-weight: 500; }
+        .footer-bar { background-color: #171f2f; border-radius: 10px; padding: 15px 25px; display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .footer-item { display: flex; align-items: center; gap: 10px; color: #d1d5db; text-decoration: none; font-size: 0.95rem; }
+        .footer-item:hover { color: #22c55e; }
+        .footer-item i { color: #22c55e; font-size: 1.1rem; }
+        
+        /* Conteúdo e Vídeos */
+        .site-content { max-width: 1300px; margin: 0 auto; padding: 40px 20px; }
+        .content-section { background: #121824; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 40px; margin-bottom: 30px; }
+        .content-section > h2 { color: #ffffff; font-size: 1.8rem; margin-bottom: 30px; }
+        .video-projects-list { display: flex; flex-direction: column; gap: 25px; }
+        .video-project-card { background: #171f2f; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; display: grid; grid-template-columns: 1.1fr 1.2fr; overflow: hidden; }
+        @media (max-width: 900px) { .video-project-card { grid-template-columns: 1fr; } }
+        .video-project-info { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
+        .video-badge { display: inline-block; background: #1e293b; color: #38bdf8; font-size: 0.75rem; font-weight: 600; padding: 5px 12px; border-radius: 6px; margin-bottom: 15px; width: fit-content; }
+        .video-project-info h3 { color: #ffffff; font-size: 1.4rem; margin-bottom: 12px; font-weight: 700; }
+        .video-project-info p { color: #9ca3af; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+        .video-tags-container { display: flex; flex-wrap: wrap; gap: 8px; }
+        .video-tag { background: #111827; color: #93c5fd; font-size: 0.75rem; padding: 5px 12px; border-radius: 6px; }
+        .video-embed-box { background: #0b0f17; position: relative; min-height: 260px; display: flex; align-items: center; justify-content: center; border-left: 1px solid rgba(255, 255, 255, 0.05); }
+        .video-embed-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-placeholder-text { color: #6b7280; font-size: 0.9rem; font-style: italic; text-align: center; padding: 20px; }
+        
+        /* Carrossel de Imagens */
+        .coming-soon-section { padding: 30px 0; margin-top: 40px; overflow: hidden; }
+        .coming-soon-header { margin-bottom: 20px; }
+        .coming-soon-header h2 { color: #22c55e; font-size: 1.5rem; margin-bottom: 5px; }
+        .coming-soon-header p { color: #9ca3af; font-size: 0.9rem; }
+        .marquee-container { overflow: hidden; width: 100%; position: relative; display: flex; mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); }
+        .marquee-track { display: flex; gap: 25px; width: max-content; animation: scrollMarquee 35s linear infinite; }
+        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-item { width: 320px; height: 190px; border-radius: 10px; overflow: hidden; position: relative; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); border: 1px solid rgba(34, 197, 94, 0.3); background: #111; display: flex; align-items: center; justify-content: center; }
+        .marquee-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .marquee-item:hover img { transform: scale(1.05); }
+        @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .main-footer { text-align: center; padding: 30px; color: #6b7280; font-size: 0.9rem; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- CAPA DE ENTRADA DO PORTFÓLIO (TOPO)        -->
+    <!-- ========================================== -->
+    <section class="portfolio-hero-section">
+        <div class="portfolio-container">
+            <header class="header-section">
+                <h1>Kleber Oliveira Silva</h1>
+                <h2>Editor de Vídeo & Criador de Conteúdo</h2>
+                <div class="contact-info">
+                    <span><i class="fa-solid fa-location-dot"></i> Nova Odessa - SP</span>
+                    <span><i class="fa-brands fa-whatsapp"></i> (19) 98152-3438</span>
+                    <span><i class="fa-solid fa-envelope"></i> kleber.rbv2014@gmail.com</span>
+                    <span><i class="fa-solid fa-envelope"></i> kleberooliveira11@gmail.com</span>
+                </div>
+            </header>
+
+            <div class="main-grid">
+                <!-- Coluna Esquerda: Formação Acadêmica -->
+                <div class="card">
+                    <div class="card-title">Formação Acadêmica</div>
+                    
+                    <div class="education-item">
+                        <div class="institution-logo etec">ETEC</div>
+                        <div class="education-details">
+                            <h3>Técnico em Desenvolvimento de Sistemas</h3>
+                            <p>Etec Polivalente de Americana | Interrompido (Fev 2019 - Jun 2020). Falta um semestre.</p>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="institution-logo unimep">UNIMEP</div>
+                        <div class="education-details">
+                            <h3>Comunicação Social em Rádio/TV e Internet</h3>
+                            <p>UNIMEP (Universidade Metodista de Piracicaba) | Concluído (Fev 2014 - Dez 2018).</p>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="institution-logo microlins">MICROLINS</div>
+                        <div class="education-details">
+                            <h3>Montagem e Manutenção de Micro, Administração Básica Completa e Informática Completa</h3>
+                            <p>Microlins – Unidade Nova Odessa | Concluído em 09/06/2007.</p>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="institution-logo senai">SENAI</div>
+                        <div class="education-details">
+                            <h3>Programador de Impressora 3D</h3>
+                            <p>SENAI – Sumaré.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Conhecimentos e Competências -->
+                <div style="display: flex; flex-direction: column; gap: 25px;">
+                    <div class="card">
+                        <div class="card-title">Conhecimentos Técnicos</div>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <div class="tech-badge"><i class="fa-solid fa-video"></i></div>
+                                <span>Adobe Premiere</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-badge"><i class="fa-solid fa-film"></i></div>
+                                <span>Sony Vegas</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-badge"><i class="fa-solid fa-palette"></i></div>
+                                <span>Photoshop / Illustrator</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-badge"><i class="fa-solid fa-code"></i></div>
+                                <span>HTML / CSS / JS</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-badge"><i class="fa-solid fa-file-excel"></i></div>
+                                <span>Pacote Office</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title">Principais Competências</div>
+                        <div class="competencies-grid">
+                            <div class="competency-box">
+                                <i class="fa-solid fa-clapperboard"></i>
+                                <span>Produção de Vídeo</span>
+                            </div>
+                            <div class="competency-box">
+                                <i class="fa-solid fa-bullhorn"></i>
+                                <span>Storytelling</span>
+                            </div>
+                            <div class="competency-box">
+                                <i class="fa-solid fa-comments"></i>
+                                <span>Comunicação Digital</span>
+                            </div>
+                            <div class="competency-box">
+                                <i class="fa-solid fa-pen-nib"></i>
+                                <span>Design para Mídias</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodapé Interno com Links Funcionais (WhatsApp e LinkedIn) -->
+            <footer class="footer-bar">
+                <a href="https://wa.me/5519981523438" target="_blank" class="footer-item">
+                    <i class="fa-brands fa-whatsapp"></i> (19) 98152-3438
+                </a>
+                <a href="https://www.linkedin.com/in/kleber-oliveira-silva-4a3971b6/" target="_blank" class="footer-item">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
+                </a>
+            </footer>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- RESTANTE DO SITE (VÍDEOS E CRIAÇÃO)        -->
+    <!-- ========================================== -->
+    <main class="site-content">
+        <section class="content-section">
+            <h2>Projetos em Destaque (Vídeos)</h2>
+            
+            <div class="video-projects-list">
+                <!-- Vídeo 1 -->
+                <div class="video-project-card">
+                    <div class="video-project-info">
+                        <div>
+                            <span class="video-badge">Institucional / Marketing</span>
+                            <h3>Campanha Institucional: Estratégia e Escala para Negócios</h3>
+                            <p>Peça institucional desenvolvida para posicionar uma marca no digital com foco em conversão e expansão de mercado. O projeto utiliza uma narrativa comercial persuasiva (storytelling), cortes dinâmicos e tratamento de cor para transmitir autoridade e atrair clientes corporativos.</p>
+                        </div>
+                        <div class="video-tags-container">
+                            <span class="video-tag">Adobe Premiere</span>
+                            <span class="video-tag">Capcut</span>
+                            <span class="video-tag">Adobe Photoshop</span>
+                        </div>
+                    </div>
+                    <div class="video-embed-box">
+                        <iframe src="https://www.youtube.com/embed/yYInvILK3yA" title="Vídeo Agência de Marketing" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Vídeo 2 -->
+                <div class="video-project-card">
+                    <div class="video-project-info">
+                        <div>
+                            <span class="video-badge">Televisão / Entretenimento</span>
+                            <h3>Vinheta de Abertura: Entretenimento e Dinâmica para TV</h3>
+                            <p>Produção de identidade visual e vinheta de abertura para televisão, combinando ritmo acelerado, edição ágil e pós-produção avançada para prender a atenção do telespectador nos primeiros segundos. Foco em dinamismo de palco e apelo visual moderno para o mercado de entretenimento.</p>
+                        </div>
+                        <div class="video-tags-container">
+                            <span class="video-tag">Adobe Premiere</span>
+                            <span class="video-tag">Adobe Photoshop</span>
+                            <span class="video-tag">After Effects</span>
+                        </div>
+                    </div>
+                    <div class="video-embed-box">
+                        <iframe src="https://www.youtube.com/embed/6v3HKKYbD1U" title="Abertura Programa TV Piracicaba" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Vídeo 3 -->
+                <div class="video-project-card">
+                    <div class="video-project-info">
+                        <div>
+                            <span class="video-badge">Em Breve</span>
+                            <h3>Novo Projeto Audiovisual (Vídeo 3)</h3>
+                            <p>Este vídeo será postado em breve. Estamos finalizando a edição e os últimos ajustes de pós-produção para trazer um conteúdo de alta qualidade para você.</p>
+                        </div>
+                        <div class="video-tags-container">
+                            <span class="video-tag">Em Breve</span>
+                        </div>
+                    </div>
+                    <div class="video-embed-box">
+                        <span class="video-placeholder-text">Vídeo será postado em breve</span>
+                    </div>
+                </div>
+
+                <!-- Vídeo 4 -->
+                <div class="video-project-card">
+                    <div class="video-project-info">
+                        <div>
+                            <span class="video-badge">Em Breve</span>
+                            <h3>Novo Projeto Audiovisual (Vídeo 4)</h3>
+                            <p>Este vídeo será postado em breve. Fique ligado para acompanhar as novidades e os novos trabalhos que estão sendo preparados.</p>
+                        </div>
+                        <div class="video-tags-container">
+                            <span class="video-tag">Em Breve</span>
+                        </div>
+                    </div>
+                    <div class="video-embed-box">
+                        <span class="video-placeholder-text">Vídeo será postado em breve</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEÇÃO DE CRIAÇÃO DE IMAGENS PARA CAMPANHAS -->
+            <div class="coming-soon-section">
+                <div class="coming-soon-header">
+                    <h2>Criação de Imagens para Campanhas</h2>
+                    <p>Projetos gráficos, artes visuais e peças promocionais em desenvolvimento</p>
+                </div>
+                
+                <div class="marquee-container">
+                    <div class="marquee-track">
+                        <!-- Primeira passada -->
+                        <div class="marquee-item"><img src="conta tudo.png" alt="Conta Tudo"></div>
+                        <div class="marquee-item"><img src="image 1.jpg" alt="Aguarde! Em Breve"></div>
+                        <div class="marquee-item"><img src="imagen 2.webp" alt="Em Breve Gravando"></div>
+                        <div class="marquee-item"><img src="imagen 3.webp" alt="Em Breve Novidades"></div>
+                        <div class="marquee-item"><img src="pagina 1 do hotel.png" alt="Prévia Hotel 1"></div>
+                        <div class="marquee-item"><img src="pagina 3 do hotel.png" alt="Prévia Hotel 3"></div>
+                        <div class="marquee-item"><img src="pagina 5 do hotel.png" alt="Prévia Hotel 5"></div>
+                        
+                        <!-- Segunda passada (loop contínuo e suave) -->
+                        <div class="marquee-item"><img src="conta tudo.png" alt="Conta Tudo"></div>
+                        <div class="marquee-item"><img src="image 1.jpg" alt="Aguarde! Em Breve"></div>
+                        <div class="marquee-item"><img src="imagen 2.webp" alt="Em Breve Gravando"></div>
+                        <div class="marquee-item"><img src="imagen 3.webp" alt="Em Breve Novidades"></div>
+                        <div class="marquee-item"><img src="pagina 1 do hotel.png" alt="Prévia Hotel 1"></div>
+                        <div class="marquee-item"><img src="pagina 3 do hotel.png" alt="Prévia Hotel 3"></div>
+                        <div class="marquee-item"><img src="pagina 5 do hotel.png" alt="Prévia Hotel 5"></div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Kleber Oliveira Silva. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
