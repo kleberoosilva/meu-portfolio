@@ -73,13 +73,113 @@
         .marquee-item:hover img { transform: scale(1.05); }
         @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .main-footer { text-align: center; padding: 30px; color: #6b7280; font-size: 0.9rem; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 40px; }
+
+        /* ESTILOS DO MODAL DE APRESENTAÇÃO */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.88);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .modal-content {
+            background: #171f2f;
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            max-width: 750px;
+            width: 90%;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+        }
+        .modal-content h2 {
+            margin-bottom: 12px;
+            font-size: 1.6rem;
+            color: #22c55e;
+        }
+        .modal-content p {
+            margin-bottom: 25px;
+            color: #9ca3af;
+            font-size: 1rem;
+        }
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn-yes, .btn-no {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .btn-yes {
+            background-color: #22c55e;
+            color: #0b0f17;
+        }
+        .btn-yes:hover {
+            background-color: #16a34a;
+        }
+        .btn-no {
+            background-color: #374151;
+            color: white;
+        }
+        .btn-no:hover {
+            background-color: #4b5563;
+        }
+        .hidden {
+            display: none !important;
+        }
+        #video-container {
+            margin-top: 10px;
+        }
+        .btn-close {
+            margin-top: 15px;
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        .btn-close:hover {
+            background-color: #dc2626;
+        }
     </style>
 </head>
 <body>
 
-    <!-- ========================================== -->
-    <!-- CAPA DE ENTRADA DO PORTFÓLIO (TOPO)        -->
-    <!-- ========================================== -->
+    <div id="welcome-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="modal-title">Olá! Seja bem-vindo ao meu portfólio.</h2>
+            <p id="modal-desc">Deseja assistir a um rápido vídeo de apresentação antes de navegar?</p>
+            
+            <div class="modal-buttons" id="modal-btns">
+                <button id="btn-yes" class="btn-yes">Sim, quero assistir!</button>
+                <button id="btn-no" class="btn-no">Agora não</button>
+            </div>
+            
+            <div id="video-container" class="hidden">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
+                    <iframe id="intro-video-frame" src="" title="Vídeo de Apresentação" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <button id="btn-close" class="btn-close"><i class="fa-solid fa-xmark"></i> Fechar e Entrar no Portfólio</button>
+            </div>
+        </div>
+    </div>
+
     <section class="portfolio-hero-section">
         <div class="portfolio-container">
             <header class="header-section">
@@ -94,7 +194,6 @@
             </header>
 
             <div class="main-grid">
-                <!-- Coluna Esquerda: Formação Acadêmica -->
                 <div class="card">
                     <div class="card-title">Formação Acadêmica</div>
                     
@@ -131,7 +230,6 @@
                     </div>
                 </div>
 
-                <!-- Coluna Direita: Conhecimentos e Competências -->
                 <div style="display: flex; flex-direction: column; gap: 25px;">
                     <div class="card">
                         <div class="card-title">Conhecimentos Técnicos</div>
@@ -183,7 +281,6 @@
                 </div>
             </div>
 
-            <!-- Rodapé Interno com Links Funcionais (WhatsApp e LinkedIn) -->
             <footer class="footer-bar">
                 <a href="https://wa.me/5519981523438" target="_blank" class="footer-item">
                     <i class="fa-brands fa-whatsapp"></i> (19) 98152-3438
@@ -195,15 +292,11 @@
         </div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- RESTANTE DO SITE (VÍDEOS E CRIAÇÃO)        -->
-    <!-- ========================================== -->
     <main class="site-content">
         <section class="content-section">
             <h2>Projetos em Destaque (Vídeos)</h2>
             
             <div class="video-projects-list">
-                <!-- Vídeo 1 -->
                 <div class="video-project-card">
                     <div class="video-project-info">
                         <div>
@@ -222,7 +315,6 @@
                     </div>
                 </div>
 
-                <!-- Vídeo 2 -->
                 <div class="video-project-card">
                     <div class="video-project-info">
                         <div>
@@ -241,7 +333,6 @@
                     </div>
                 </div>
 
-                <!-- Vídeo 3 -->
                 <div class="video-project-card">
                     <div class="video-project-info">
                         <div>
@@ -258,7 +349,6 @@
                     </div>
                 </div>
 
-                <!-- Vídeo 4 -->
                 <div class="video-project-card">
                     <div class="video-project-info">
                         <div>
@@ -276,7 +366,6 @@
                 </div>
             </div>
 
-            <!-- SEÇÃO DE CRIAÇÃO DE IMAGENS PARA CAMPANHAS -->
             <div class="coming-soon-section">
                 <div class="coming-soon-header">
                     <h2>Criação de Imagens para Campanhas</h2>
@@ -285,7 +374,6 @@
                 
                 <div class="marquee-container">
                     <div class="marquee-track">
-                        <!-- Primeira passada -->
                         <div class="marquee-item"><img src="conta tudo.png" alt="Conta Tudo"></div>
                         <div class="marquee-item"><img src="image 1.jpg" alt="Aguarde! Em Breve"></div>
                         <div class="marquee-item"><img src="imagen 2.webp" alt="Em Breve Gravando"></div>
@@ -294,7 +382,6 @@
                         <div class="marquee-item"><img src="pagina 3 do hotel.png" alt="Prévia Hotel 3"></div>
                         <div class="marquee-item"><img src="pagina 5 do hotel.png" alt="Prévia Hotel 5"></div>
                         
-                        <!-- Segunda passada (loop contínuo e suave) -->
                         <div class="marquee-item"><img src="conta tudo.png" alt="Conta Tudo"></div>
                         <div class="marquee-item"><img src="image 1.jpg" alt="Aguarde! Em Breve"></div>
                         <div class="marquee-item"><img src="imagen 2.webp" alt="Em Breve Gravando"></div>
@@ -313,5 +400,40 @@
         <p>&copy; 2026 Kleber Oliveira Silva. Todos os direitos reservados.</p>
     </footer>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const modal = document.getElementById("welcome-modal");
+            const btnYes = document.getElementById("btn-yes");
+            const btnNo = document.getElementById("btn-no");
+            const btnClose = document.getElementById("btn-close");
+            const videoContainer = document.getElementById("video-container");
+            const videoFrame = document.getElementById("intro-video-frame");
+            const modalTitle = document.getElementById("modal-title");
+            const modalDesc = document.getElementById("modal-desc");
+            const modalBtns = document.getElementById("modal-btns");
+
+            // Se clicar em "Sim", esconde os textos, exibe o vídeo e ativa o autoplay do YouTube
+            btnYes.addEventListener("click", function() {
+                modalTitle.classList.add("hidden");
+                modalDesc.classList.add("hidden");
+                modalBtns.classList.add("hidden");
+                
+                videoContainer.classList.remove("hidden");
+                // Atribui o link com autoplay para que o vídeo comece sozinho
+                videoFrame.src = "https://www.youtube.com/embed/8dDG_xK2rQ8?autoplay=1";
+            });
+
+            // Se clicar em "Agora não", apenas fecha a caixa e libera o site
+            btnNo.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+
+            // Se clicar em fechar após assistir ao vídeo, limpa o link (para o som) e fecha o modal
+            btnClose.addEventListener("click", function() {
+                videoFrame.src = "";
+                modal.style.display = "none";
+            });
+        });
+    </script>
 </body>
 </html>
